@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://kshitiz123:kshitiz123@devkonnectcluster1.ojohv.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "kshitizsecrettoken",
+  "githubClientId": "09334483a3bc4a987a41",
+  "githubSecret": "43dcf364b5160a861578f0e19889d26ff82eea07"
+}
