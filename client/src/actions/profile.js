@@ -13,8 +13,11 @@ import {
 
 // Get current user's profile
 export const getCurrentProfile = () => async (dispatch) => {
+  var username = '';
   try {
     const res = await axios.get('/api/profile/me');
+    username = res.data.user.name;
+    dispatch(setAlert(`Welcome ${username}`, 'success'));
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -196,39 +199,51 @@ export const addEducation = (FormData, history) => async (dispatch) => {
 
 // Action to Delete an Experience
 export const deleteExperience = (id) => async (dispatch) => {
-  try {
-    const res = await axios.delete(`/api/profile/experience/${id}`);
+  if (
+    window.confirm(
+      'Are you sure want to DELETE THIS EXPERIENCE DETAIL ? Deleting can not be undone in future'
+    )
+  ) {
+    try {
+      const res = await axios.delete(`/api/profile/experience/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data,
-    });
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data,
+      });
 
-    dispatch(setAlert('Your experience is successfully deleted', 'success'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch(setAlert('Your experience is successfully deleted', 'success'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
 
 // Action to Delete an Education
 export const deleteEducation = (id) => async (dispatch) => {
-  try {
-    const res = await axios.delete(`/api/profile/education/${id}`);
+  if (
+    window.confirm(
+      'Are you sure want to DELETE THIS EDUCATION DETAIL ? Deleting can not be undone in future'
+    )
+  ) {
+    try {
+      const res = await axios.delete(`/api/profile/education/${id}`);
 
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data,
-    });
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data,
+      });
 
-    dispatch(setAlert('Your education is successfully deleted', 'success'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch(setAlert('Your education is successfully deleted', 'success'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
 

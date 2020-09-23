@@ -15,19 +15,21 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className="large text-primary">
-            {' '}
-            Explore Developers on DevKonnect
-          </h1>
+          <div className="mycontainer">
+            <h1 className="large text-primary">
+              {' '}
+              Explore Developers on DevKonnect
+            </h1>
 
-          <div className="profiles">
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
-            ) : (
-              <h4> No Profiles Found</h4>
-            )}
+            <div className="profiles">
+              {profiles.length > 0 ? (
+                profiles.map((profile) => (
+                  <ProfileItem key={profile._id} profile={profile} />
+                ))
+              ) : (
+                <h4> No Profiles Found</h4>
+              )}
+            </div>
           </div>
         </Fragment>
       )}

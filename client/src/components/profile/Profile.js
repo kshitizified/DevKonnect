@@ -22,65 +22,70 @@ const Profile = ({
 
   return (
     <Fragment>
-      {profile === null || loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          <Link to="/profiles" className="btn btn-primary">
-            Go Back
-          </Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Link to="/edit-profile" class="btn btn-dark">
-                Edit My Profile
-              </Link>
-            )}
+      <div className="mycontainer">
+        {profile === null || loading ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            <Link to="/profiles" className="btn btn-dark">
+              Go Back
+            </Link>
+            {auth.isAuthenticated &&
+              auth.loading === false &&
+              auth.user._id === profile.user._id && (
+                <Link to="/edit-profile" class="btn btn-dark">
+                  Edit My Profile
+                </Link>
+              )}
 
-          <div class="profile-grid my-1">
-            <ProfileTop profile={profile} />
-            <ProfileAbout profile={profile} />
+            <div class="profile-grid my-1">
+              <ProfileTop profile={profile} />
+              <ProfileAbout profile={profile} />
 
-            <div className="profile-exp bg-white p-2">
-              <h2 className="text-primary">Experience</h2>
+              <div className="profile-exp bg-white p-2">
+                <h2 className="text-primary">Experience</h2>
 
-              {profile.experience.length > 0 ? (
-                <Fragment>
-                  {profile.experience.map((experience) => (
-                    <ProfileExperience
-                      key={experience._id}
-                      experience={experience}
-                    />
-                  ))}
-                </Fragment>
-              ) : (
-                <h4> No Experience Details Found </h4>
+                {profile.experience.length > 0 ? (
+                  <Fragment>
+                    {profile.experience.map((experience) => (
+                      <ProfileExperience
+                        key={experience._id}
+                        experience={experience}
+                      />
+                    ))}
+                  </Fragment>
+                ) : (
+                  <h4> No Experience Details Found </h4>
+                )}
+              </div>
+
+              <div className="profile-edu bg-white p-2">
+                <h2 className="text-primary">Education</h2>
+
+                {profile.education.length > 0 ? (
+                  <Fragment>
+                    {profile.education.map((education) => (
+                      <ProfileEducation
+                        key={education._id}
+                        education={education}
+                      />
+                    ))}
+                  </Fragment>
+                ) : (
+                  <h4> No education Details Found </h4>
+                )}
+              </div>
+
+              {profile.githubusername && (
+                <ProfileGithub username={profile.githubusername} />
               )}
             </div>
-
-            <div className="profile-edu bg-white p-2">
-              <h2 className="text-primary">Education</h2>
-
-              {profile.education.length > 0 ? (
-                <Fragment>
-                  {profile.education.map((education) => (
-                    <ProfileEducation
-                      key={education._id}
-                      education={education}
-                    />
-                  ))}
-                </Fragment>
-              ) : (
-                <h4> No education Details Found </h4>
-              )}
-            </div>
-
-            {profile.githubusername && (
-              <ProfileGithub username={profile.githubusername} />
-            )}
-          </div>
-        </Fragment>
-      )}
+            <Link to="/profiles" className="btn btn-dark">
+              Go Back
+            </Link>
+          </Fragment>
+        )}
+      </div>
     </Fragment>
   );
 };

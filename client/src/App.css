@@ -21,6 +21,14 @@ body {
   color: #333;
 }
 
+.DevKonnect {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.sp-text {
+  font-family: 'Baloo 2', cursive;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -34,8 +42,21 @@ img {
   width: 100%;
 }
 
+.mydiv-center-vert-horiz {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 80%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+}
+
 /* Utilities */
-.container {
+.mycontainer {
   max-width: 1100px;
   margin: auto;
   overflow: hidden;
@@ -128,15 +149,24 @@ img {
 
 .btn {
   display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
+  padding: 6px 12px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .badge {
@@ -160,8 +190,39 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: var(--primary-color);
   color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+
+.label-warning {
+  background-color: #f0ad4e;
+}
+
+.label-success {
+  background-color: #5cb85c;
+}
+
+.label-margin-zero {
+  margin: 0px !important;
+}
+
+.label-default {
+  background-color: #777;
+  margin-left: 5px;
 }
 
 .btn-light,
@@ -349,6 +410,11 @@ button {
   text-align: center;
 }
 
+.myfooter {
+  position: fixed;
+  bottom: 0;
+}
+
 /* Profiles Page */
 .profile {
   display: grid;
@@ -381,7 +447,7 @@ button {
 }
 
 .profile-top img {
-  width: 250px;
+  width: 200px;
 }
 
 .profile-top .icons a {

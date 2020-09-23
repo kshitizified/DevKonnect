@@ -12,22 +12,37 @@ const Landing = ({ isAuthenticated }) => {
     <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large">DevKonnect</h1>
-          <p className="lead">
-            Connecting Developers
+          <h1 className="x-large DevKonnect">DevKonnect</h1>
+          <p className="lead sp-text">
+            Connecting Technical Enthusiasts
             <br></br>
             <br></br>
-            Create interesting post | Help other Developers | Discuss your
-            problems
+            Create interesting post | Help others | Discuss Technology
           </p>
           <div className="buttons">
-            <Link to="/register" className="btn btn-primary">
-              Sign Up
+            <Link to="/register">
+              <input
+                type="button"
+                className="btn btn-primary"
+                value="Register"
+              />
             </Link>
-            <Link to="/login" className="btn btn-light">
-              Login
+            <Link to="/login">
+              <input type="button" className="btn btn-light" value="Login" />
             </Link>
           </div>
+          <p className="myfooter sp-text ">
+            {' '}
+            <a
+              href="https://www.linkedin.com/in/kshitiz-kumar/"
+              target="_blank">
+              Created By: Kshitiz Kumar
+            </a>{' '}
+            |{' '}
+            <a href="https://github.com/kshitizified" target="_blank">
+              Github
+            </a>
+          </p>
         </div>
       </div>
     </section>
